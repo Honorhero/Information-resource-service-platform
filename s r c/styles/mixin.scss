@@ -1,0 +1,38 @@
+@mixin diff-input($bgColor, $border, $color) {
+  .el-input {
+    .el-input__inner {
+      background: $bgColor;
+      border: $border;
+      color: $color;
+    }
+    input::-webkit-input-placeholder {
+      color: $color;
+    }
+    input::-moz-input-placeholder {
+      color: $color;
+    }
+    input::-ms-input-placeholder {
+      color: $color;
+    }
+    caret-color: $color !important; // 设置光标颜色
+    [class^=el-icon] {
+      color: $color;
+    }
+  }
+}
+
+@mixin nav-a($color, $decoration) {
+  color: $color;
+  text-decoration: $decoration;
+}
+
+@mixin text-font($size, $family, $weight) {
+  font-size: $size;
+  font-family: $family;
+  font-weight: $weight;
+}
+
+@mixin image-area($width, $height) {
+  width: $width;
+  height: $height;
+}

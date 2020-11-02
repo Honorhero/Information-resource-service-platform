@@ -1,0 +1,79 @@
+@import "../mixin.scss";
+
+$fontSize: 14px;
+$fontWeight: 500;
+$fontFamily: "微软雅黑";
+#site-nav {
+  width: 100%;
+  min-width: 990px;
+  height: 86px;
+  line-height: 86px;
+  text-align: center;
+  background-color: #5fafa4;
+  // box-shadow: 0 8px 9px 0 #3c615b;
+  @include text-font($fontSize, $fontFamily, $fontWeight);
+  .site-logo {
+    position: absolute;
+    width: 124px;
+    height: 48px;
+    padding-top: 19px;
+    left: 8%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .site-logo {
+      left: 0;
+    }
+  }
+  @media screen and (max-width: 1366px) {
+    .site-logo {
+      left: 5%;
+    }
+  }
+  .sn-menu {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    min-width: 560px;
+    max-width: 1280px;
+    margin: 0 auto;
+    .sn-container {
+      // padding-top: 13px;
+      .el-menu.el-menu--horizontal {
+        border-bottom: none;
+        li {
+          @include text-font($fontSize, $fontFamily, $fontWeight);
+        }
+      }
+    }
+    .sn-search {
+      display: flex;
+      justify-content: center;
+      width: 280px;
+      height: 100%;
+      .search-input {
+        width: 160px;
+        @include diff-input(#3a6d66, none, #fff);
+      }
+      .search-link {
+        width: 100px;
+        a {
+          @include nav-a(#fff, none);
+        }
+      }
+    }
+    .sn-login-info {
+      color: #fff;
+      .sn-login,
+      .sn-register,
+      .sn-user,
+      .sn-logout {
+        @include nav-a(#fff, none);
+      }
+    }
+  }
+}

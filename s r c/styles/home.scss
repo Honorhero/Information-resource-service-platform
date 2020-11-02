@@ -1,0 +1,312 @@
+@import "./mixin.scss";
+
+$fontFamily: PingFang SC, "微软雅黑";
+$fontWeight: 500;
+.home {
+  width: 100%;
+  min-width: 990px;
+  text-align: left;
+  // margin-bottom: 300px;
+
+  /* 链接样式 */
+  .link-text {
+    @include text-font(16px, $fontFamily, $fontWeight);
+    color: #343434;
+    cursor: pointer;
+    &:hover {
+      color: #64c0bc;
+    }
+  }
+
+  /* 文字过长显示省略号 */
+  .ellipse-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: inherit;
+  }
+
+  /* 多行文字过长显示省略号 */
+  .multi-row-text {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical; /* 从顶部向底部垂直布置子元素 */
+    white-space: pre-wrap;
+    -webkit-line-clamp: 2; /* -webkit */
+  }
+
+  .category-image {
+    width: 100%;
+    height: 300px;
+    background: #000;
+    .img {
+      width: auto;
+      min-width: 40%;
+      height: 300px;
+      // object-fit: cover;
+    }
+  }
+
+  .title {
+    width: 160px;
+    text-align: left;
+    padding-left: 12px;
+    .main-title {
+      position: relative;
+      color: #333;
+      @include text-font(36px, $fontFamily, $fontWeight);
+      &::before {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 34px;
+        background: #5CADA2;
+        top: 8px;
+        left: -32px;
+        opacity: 0.98;
+        border-radius: 2px;
+        margin-left: 20px;
+      }
+    }
+    .sub-title {
+      position: relative;
+      color: #999;
+      @include text-font(24px, $fontFamily, $fontWeight);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .list {
+    .book-list, .news-list {
+      width: 450px;
+      padding-top: 30px;
+      @include text-font(16px, $fontFamily, $fontWeight);
+      color: #343434;
+      .r-book-top1 {
+        margin-bottom: 16px;
+        .top1-image {
+          width: 114px;
+          height: 124px;
+          margin-right: 16px;
+          cursor: pointer;
+        }
+        .top1-book-info {
+          @include text-font(14px, $fontFamily, 400);
+          color: #9a9a9a;
+          padding: 16px 0 16px;
+        }
+      }
+      .news-text {
+        width: 320px;
+        max-height: 40px;
+        @extend .multi-row-text;
+      }
+      .el-divider--horizontal {
+        margin: 16px 0;
+      }
+    }
+  }
+  [class^="el-icon"] {
+    color: #64c0bc;
+    margin-right: 5px;
+  }
+  .course-container {
+    background: #fff;
+    text-align: left;
+    .main {
+      max-width: 1200px;
+      padding-top: 37px;
+      margin: 0 auto;
+      .video-area {
+        display: flex;
+        margin-top: 45px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        .item {
+          margin-bottom: 41px;
+          .img {
+            width: 222px;
+            height: 158px;
+            // background: #333;
+            padding: 0 18px 10px 0;
+            cursor: pointer;
+          }
+          .video-title {
+            @extend .multi-row-text;
+            // display: -webkit-box;
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+            // -webkit-box-orient: vertical; /* 从顶部向底部垂直布置子元素 */
+            // white-space: pre-wrap;
+            // -webkit-line-clamp: 2; /* -webkit */
+            margin-bottom: 27px;
+            width: 222px;
+            max-height: 40px;
+            @include text-font(16px, $fontFamily, $fontWeight);
+            color: #333;
+          }
+          .info-top {
+            color: #999;
+            @include text-font(16px, $fontFamily, 400);
+          }
+          .info-bottom {
+            color: #999;
+            @include text-font(14px, $fontFamily, 400);
+          }
+        }
+      }
+    }
+  }
+
+  .book-container {
+    background: #f2f2f2;
+    text-align: left;
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 0;
+      display: flex;
+      justify-content: space-between;
+      .l-book {
+        width: 55%;
+        max-width: 600px;
+        .title {
+          width: 200px;
+        }
+        .l-book-image {
+          display: flex;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          padding-top: 30px;
+          .image-item {
+            width: 140px;
+            height: 172px;
+            padding: 0 10px 10px 0;
+            cursor: pointer;
+          }
+          .image-text {
+            width: 140px;
+            margin-bottom: 25px;
+            // @include text-font(16px, $fontFamily, $fontWeight);
+            @extend .ellipse-text;
+          }
+        }
+      }
+      .r-book {
+        width: 45%;
+        margin-left: 60px;
+        .title {
+          width: 200px;
+        }
+        @extend .list;
+      }
+    }
+  }
+
+  .slogan-container {
+    width: 100%;
+    height: 195px;
+    background: linear-gradient(0deg, #60B0A4 0%, #7FD1C6 98%);
+  }
+
+  .container-news {
+    background: #fff;
+    // height: 490px;
+    .main-news {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 0 52px;
+      display: flex;
+      justify-content: space-between;
+      .title {
+        width: 280px;
+      }
+      .l-news {
+        width: 55%;
+        min-width: 600px;
+        @extend .list;
+        .news-list {
+          width: 100%;
+        }
+      }
+      .r-news {
+        width: 50%;
+        margin-left: 60px;
+        @extend .list;
+      }
+    }
+  }
+
+  .container-music {
+    background: #f2f2f2;
+    .main-music {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0 30px;
+      .title {
+        width: 190px;
+      }
+      .image-area {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding-top: 30px;
+        @include text-font(16px, $fontFamily, $fontWeight);
+        color: #343434;
+        .image-item {
+          width: 176px;
+          height: 174px;
+          padding: 0 20px 20px 0;
+          cursor: pointer;
+        }
+        .music-title {
+          width: 176px;
+          @extend .ellipse-text;
+        }
+        .music-info {
+          color: #9a9a9a;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .container-expert {
+    background: #fff;
+    .main-expert {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 54px 0 60px;
+      .title {
+        width: 190px;
+      }
+      .card {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding-top: 30px;
+        .box-card {
+          margin: 0 24px 24px 0;
+          width: 362px;
+          // height: 182px;
+          .expert-info {
+            margin-left: 18px;
+            .name {
+              padding: 8px 0 9px;
+              @include text-font(20px, $fontFamily, $fontWeight);
+              color: #333;
+            }
+            .desc {
+              @include text-font(16px, $fontFamily, 400);
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+  }
+}
